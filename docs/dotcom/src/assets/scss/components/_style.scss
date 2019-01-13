@@ -1,0 +1,315 @@
+// Import
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700');
+
+// Color 
+$colorbackground: #fff;
+$nav-font: #dddddd;
+
+
+// Basic
+
+html {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    background-color: $colorbackground;
+    min-height: 100vh;
+}
+
+body {
+    overflow-x: hidden;
+    z-index: 100;
+}
+
+// Nav
+
+#nav-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    background: $colorbackground;
+    padding: 70px;
+}
+
+#nav-menu {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    left: 20px;
+    top: calc(50vh - 20px);
+    z-index: 900;
+    background: url(../img/SVG/menu.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+}
+
+#nav-menu-mobile {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    right: 60px;
+    bottom: 20px;
+    z-index: 900;
+    background: url(../img/SVG/menu.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+}
+
+#nav-menu-outer {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    left: 20px;
+    top: calc(50vh - 20px);
+    z-index: 900;
+}
+
+#nav-menu-outer-mobile {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    right: 60px;
+    bottom: 20px;
+    z-index: 900;
+}
+
+#nav-bg {
+    height: 100vh; 
+    width: 70px; 
+    position: fixed; 
+    left: 0; 
+    bottom: 0;  
+    background: $colorbackground;
+    border-right: #000 solid 1px;
+}
+
+.nav-label {
+    transform: translateY(40px);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-label-mobile {
+    transform: rotate(270deg) translateX(-8px) translateY(30px);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#nav-menu:hover, #nav-menu-mobile:hover {
+    transform: rotate(180deg);
+}
+
+#nav-picture {
+    width: 100%;
+    height: calc(100vh - 140px);
+    background: $colorbackground;
+    transform: translateX(calc(-100% - 6rem));
+    background: url(./dotcom/preview.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#nav-inner {
+    overflow: auto; 
+    height: calc(100vh - 140px); 
+    width: 150%;
+    counter-reset: nav-list-counter;
+}
+
+// Motion
+
+.transition-fast {
+    transition: transform 500ms cubic-bezier(1, 0, 0, 1);
+    -moz-transition: transform 500ms cubic-bezier(1, 0, 0, 1);
+    -ms-transition: transform 500ms cubic-bezier(1, 0, 0, 1);
+    -webkit-transition: transform 500ms cubic-bezier(1, 0, 0, 1);
+    -o-transition: transform 500ms cubic-bezier(1, 0, 0, 1);
+}
+
+.transition-slow {
+    transition: transform 600ms cubic-bezier(1, 0, 0, 1);
+    -moz-transition: transform 600ms cubic-bezier(1, 0, 0, 1);
+    -ms-transition: transform 600ms cubic-bezier(1, 0, 0, 1);
+    -webkit-transition: transform 600ms cubic-bezier(1, 0, 0, 1);
+    -o-transition: transform 600ms cubic-bezier(1, 0, 0, 1);
+}
+
+.transition-left {
+    transition: transform 600ms cubic-bezier(1, 0, 0, 1), left 600ms cubic-bezier(1, 0, 0, 1);
+    -moz-transition: transform 600ms cubic-bezier(1, 0, 0, 1), left 600ms cubic-bezier(1, 0, 0, 1);
+    -ms-transition: transform 600ms cubic-bezier(1, 0, 0, 1), left 600ms cubic-bezier(1, 0, 0, 1);
+    -webkit-transition: transform 600ms cubic-bezier(1, 0, 0, 1), left 600ms cubic-bezier(1, 0, 0, 1);
+    -o-transition: transform 600ms cubic-bezier(1, 0, 0, 1), left 600ms cubic-bezier(1, 0, 0, 1);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
+    
+    50% {
+        -webkit-transform: translateX(-15px);
+        -moz-transform: translateX(-15px);
+        -ms-transform: translateX(-15px);
+        -o-transform: translateX(-15px);
+        transform: translateX(-15px);
+    }
+}
+
+.bounce {
+    animation: bounce 1800ms infinite;
+}
+
+#scroll-info {
+    position: fixed;
+    z-index: 600;
+    bottom: 70px;
+    left: -90px;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: #000000;
+
+    &.arrowpos {
+        left: 35%;
+    }
+}
+
+#scroll-info span {
+    display: inline-block;
+    -moz-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+	-webkit-transform: translateY(-2px);
+	-ms-transform: translateY(-2px);
+	transform: translateY(-2px);
+}
+
+// Classes
+
+.no-select {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.overflow-x {
+    overflow-x: hidden;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+// IDs
+
+#content {
+    margin-top: 8vh;
+}
+
+// Font 
+
+h1 {
+    line-height: 1.25;
+}
+
+p {
+    font: {
+        size: 1rem;
+    }  
+    line-height: 1.5;
+}
+
+#nav-inner a {
+    line-height: 1.5;
+    color: $nav-font;
+    text-decoration: none;
+    cursor: pointer;
+    font: {
+        size: 1.5rem;
+        weight: 400;
+    } 
+    &:hover,
+    &:active,
+    &:focus {
+        color: red;
+    }
+
+    &::before {
+        counter-increment: nav-list-counter;
+        content: counter(nav-list-counter, decimal-leading-zero) " ";
+        font: {
+        size: 4.5rem;
+        weight: 700;
+        }   
+    }
+
+    &.active {
+        color:red;
+        &::before {
+            font: {
+            size: 4.5rem;
+            weight: 700;
+            }   
+        }
+    }
+}
+
+// Mediaqueries
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+
+    #nav-inner a {
+        font: {
+            size: 1rem;
+            weight: 400;
+        } 
+
+        &::before,
+        &.active::before {
+            font: {
+            size: 3rem;
+            }   
+        }
+    }
+
+    .arrowpos {
+        left: calc(50% - 25px) !important;
+    }
+    
+    #content {
+        padding-bottom: 200px;
+    }
+
+    #nav-bg {
+        height: 70px; 
+        width: 100vw; 
+        position: fixed; 
+        left: 0; 
+        bottom: 0;  
+        background: $colorbackground;
+        border-top: #000 solid 1px;
+    }
+}
