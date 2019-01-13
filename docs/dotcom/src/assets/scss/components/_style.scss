@@ -3,7 +3,10 @@
 
 // Color 
 $colorbackground: #fff;
-$nav-font: #dddddd;
+$colorhyperlink: #d8d8d8;
+$colorline: #000;
+$colorhighlight: #FF6F61;
+$colorglobal: #000;
 
 
 // Basic
@@ -13,11 +16,16 @@ html {
     font-weight: 400;
     background-color: $colorbackground;
     min-height: 100vh;
+    color: $colorglobal;
 }
 
 body {
     overflow-x: hidden;
     z-index: 100;
+}
+
+#content {
+    margin: 0 auto 12rem auto;
 }
 
 // Nav
@@ -38,7 +46,7 @@ body {
     width: 30px;
     position: fixed;
     left: 20px;
-    top: calc(50vh - 20px);
+    top: calc(50vh - 25px);
     z-index: 900;
     background: url(../img/SVG/menu.svg);
     background-repeat: no-repeat;
@@ -66,7 +74,7 @@ body {
     width: 30px;
     position: fixed;
     left: 20px;
-    top: calc(50vh - 20px);
+    top: calc(50vh - 25px);
     z-index: 900;
 }
 
@@ -86,7 +94,7 @@ body {
     left: 0; 
     bottom: 0;  
     background: $colorbackground;
-    border-right: #000 solid 1px;
+    border-right: $colorline solid 1px;
 }
 
 .nav-label {
@@ -121,7 +129,8 @@ body {
 }
 
 #nav-inner {
-    overflow: auto; 
+    overflow: scroll; 
+    -webkit-overflow-scrolling: touch;
     height: calc(100vh - 140px); 
     width: 150%;
     counter-reset: nav-list-counter;
@@ -189,7 +198,6 @@ body {
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    color: #000000;
 
     &.arrowpos {
         left: 35%;
@@ -222,28 +230,58 @@ body {
     overflow: hidden;
 }
 
-// IDs
-
-#content {
-    margin-top: 8vh;
-}
-
 // Font 
+
+footer {
+    
+    margin: 6rem 0 0 0;
+
+    p {
+    font: {
+        size: 0.75rem;
+    }
+    }
+
+    hr {
+        border: 1px solid $colorline;
+        border-bottom: 0px;
+    }
+}
 
 h1 {
     line-height: 1.25;
+    margin: 7.5rem 0 3.75rem 0;
+}
+
+h3 {
+    margin: 2.5rem 0 1.25rem 0;
 }
 
 p {
     font: {
-        size: 1rem;
+        size: 1.25rem;
     }  
     line-height: 1.5;
 }
 
+a {
+    color: $colorhyperlink;
+
+    &:hover {
+        color: $colorhighlight;
+    }
+
+    &::before {
+        font: {
+            size: 140%;
+        }
+        content: "› ";
+    }
+}
+
 #nav-inner a {
     line-height: 1.5;
-    color: $nav-font;
+    color: $colorhyperlink;
     text-decoration: none;
     cursor: pointer;
     font: {
@@ -253,7 +291,7 @@ p {
     &:hover,
     &:active,
     &:focus {
-        color: red;
+        color: $colorhighlight;
     }
 
     &::before {
@@ -266,7 +304,7 @@ p {
     }
 
     &.active {
-        color:red;
+        color: $colorhighlight;
         &::before {
             font: {
             size: 4.5rem;
@@ -280,29 +318,13 @@ p {
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {
-
-    #nav-inner a {
-        font: {
-            size: 1rem;
-            weight: 400;
-        } 
-
-        &::before,
-        &.active::before {
-            font: {
-            size: 3rem;
-            }   
-        }
-    }
-
+    
+    // Nav
+    
     .arrowpos {
         left: calc(50% - 25px) !important;
     }
-    
-    #content {
-        padding-bottom: 200px;
-    }
-
+          
     #nav-bg {
         height: 70px; 
         width: 100vw; 
@@ -310,6 +332,35 @@ p {
         left: 0; 
         bottom: 0;  
         background: $colorbackground;
-        border-top: #000 solid 1px;
+        border-top: $colorline solid 1px;
     }
+
+    // Font
+
+    h1 {
+        margin: 6rem 0 3rem 0;
+    }
+
+    h3 {
+        margin: 2rem 0 1rem 0;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    #nav-inner a {
+        font: {
+            size: 1rem;
+            weight: 400;
+        }     
+
+        &::before,
+        &.active::before {
+            font: {
+            size: 3rem;    
+            }   
+        }        
+    }  
+    
 }
