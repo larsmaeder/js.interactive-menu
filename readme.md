@@ -1,85 +1,70 @@
+# ZURB WebApp Template
 
-# Aufgabe · Mobile Menu
+[![devDependency Status](https://david-dm.org/zurb/foundation-zurb-template/dev-status.svg)](https://david-dm.org/zurb/foundation-zurb-template#info=devDependencies)
 
+**Please open all issues with this template on the main [Foundation for Sites](https://github.com/zurb/foundation-sites/issues) repo.**
 
-## Ausgangslage
-In fast jedem Web-Projekt gibt es ein «Hamburger-Menü». Nun da die Studierenden in der lage sind einfache JavaScript-Arbeiten zu realisieren, kann ein Mobile-Menü mit «ausfahrendem» Inhalt realisiert werden.
+This is the official ZURB Template for use with [Foundation for Sites](http://foundation.zurb.com/sites). We use this template at ZURB to deliver static code to our clients. It has a Gulp-powered build system with these features:
 
-### Termin
-Am 18. Januar 2019 muss die Website mittels `gh-pages` online sein. Zusätzlich muss im Unterricht die Person und das Design kurz (5 min.) präsentiert werden.
+- Handlebars HTML templates with Panini
+- Sass compilation and prefixing
+- JavaScript module bundling with webpack
+- Built-in BrowserSync server
+- For production builds:
+  - CSS compression
+  - JavaScript module bundling with webpack
+  - Image compression
 
-## Aufgabe
-Jede Person schreibt einen Text über eine bekannte «Internet-Persönlichkeit» im Umfang von etwa 1000 Zeichen. Quellen müssen korrekt und vollständig angegeben werden. Ein kritischer Umgang mit der Zuverlässigkeit der Quellen ist gefordert. Dieser Text soll als HTML-Dateien abgegeben werden. Bitte nur Text und Textstruktur verwenden. Keine Bilder, Videos, ... Plagiate werden mit der Note 1 bewertet. Für die Übersichtsseite muss zusätzlich ein Foto der Person im Format 1200 ✕ 900 px abgegeben werden. Bitte Quelle im Text deutlich vermerken. Lizenzen für Bild beachten!
+## Installation
 
-Einige Personen, die man berücksichtigen könnte. Ich bitte [Frauen](https://en.wikipedia.org/wiki/Category:Women_Internet_pioneers) wo möglich zu bevorzugen:
-* Marissa Mayer → Ex-CEO Yahoo!
-* Chelsea Manning → Whistleblowerin
-* Jen Simmons → CSS-Grids
-* Lin Clark → Mozilla Hacks
-* Lea Verou → CSS
-* Becky Stern → Hacker & Maker
-* Steve Jobs → Ex-CEO Apple
-* Bill Gates → Ex-CEO Microsoft
-* Larry Page → CEO Alphabet (google)
-* Sergey Brin → President Alphabet (google)
-* Jeff Bezos → CEO Amazon
-* Donald E. Knuth → TeX & METAFONT
-* Aaron Swartz → Internet hacktivist
-* Vint Cerf → TCP/IP, ICANN, ...
-* Douglas Engelbart → Hypertext, GUI, Maus
-* Tim Berners-Lee → WWW
-* Brendan Eich → JavaScript  
-* Peter Sunde → The Pirate Bay, Flattr
-* Julian Assange → WikiLeaks
-* Edward Snowden → Whistleblower
-* Glenn Greenwald → Journalist
-* Lawrence Lessig → Creative Commons
+To use this template, your computer needs:
 
+- [NodeJS](https://nodejs.org/en/) (Version 6 or greater recommended, tested with 6.11.4 and 8.12.0)
+- [Git](https://git-scm.com/)
 
-## Seitenstruktur
-Die ganze Klasse arbeitet in einem [Repository](https://github.com/logrinto/IAD2017.mobile-menu). Die Studierenden erstellen jeweils;
+This template can be installed with the Foundation CLI, or downloaded and set up manually.
 
-```
-docs/{Nachname der Internet-Persönlichkeit}/
-   ├── index.html      → html-File des Texts & Hamburger-Menü
-   ├── styles.css      → Formatierung
-   ├── script.js       → JavaScript
-   ├── preview.jpg     → Bild der Person
-   └── preview.md      → Quelle des Bildes
-   ...
+### Using the CLI
+
+Install the Foundation CLI with this command:
+
+```bash
+npm install foundation-cli --global
 ```
 
-## index.html
-Dieser Seite besteht aus Text und «Hamburger-Menü». Das selbe Menü wird auch auf Desktop angezeigt. Im Hamburger-Menü wird auf die jeweiligen Klassenkammeraden verlinkt. Die Link-Ziele und Texte weren am Tag der Abgabe eingefügt. Bitte mit 12 Dummy-Links (nicht nur Text) arbeiten. Das Markup (Code) muss möglichst minimal aufgebaut sein.
+Use this command to set up a blank Foundation for Sites project with this template:
 
-## style.css & script.js
-Enthält die Formatierung und die Interaktion für die Seite.
+```bash
+foundation new --framework sites --template zurb
+```
 
+The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
 
-## Bewertung
+Now `cd` to your project name and to start your project run 
 
-### Technik (40%)
+```bash
+foundation watch
+```
 
-* Die technischen Vorgaben sind eingehalten
-* Code wird fehlerfrei ausgeführt (Chrome & Firefox)
-* Die publizierten Inhalte sind technisch einwandfrei
-* Responsive Ansicht ist gegeben
+### Manual Setup
 
-### Inhalt (20%)
-* Wahl einer geeigneten Person
-* Informationen übersichtlich und vollständig
-* Inhaltliche Strukturen wurden geschaffen
-* Texte erfüllen die Anforderung und sind vollständig
-* Text wurde mit Sorgfalt verfasst (Quellen/Vollständigkeit)
+To manually set up the template, first download it with Git:
 
-### Führung/Menü (10%)
-* Menüstruktur ist schlüssig und schnell zugänglich
-* Menü wurde für Touch-Devices optimiert
+```bash
+git clone https://github.com/zurb/foundation-zurb-template projectname
+```
 
-### Grafisches Konzept (30%)
-* Das Grafische Konzept der Seite ist schlüssig
-* Grafische Sprache entspricht dem Inhalt
-* Typografie überlegt eingesetzt
-* Seitenarchitektur überlegt
-* Zweckmässigkeit gegeben
-* Wissensvermittlung gelungen
+Then open the folder in your command line, and install the needed dependencies:
+
+```bash
+cd projectname
+yarn
+```
+
+Finally, run `yarn start` to run Gulp. Your finished site will be created in a folder called `dist`, viewable at this URL:
+
+```
+http://localhost:8000
+```
+
+To create compressed, production-ready assets, run `yarn run build`.
