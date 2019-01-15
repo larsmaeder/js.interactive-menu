@@ -283,16 +283,18 @@ p {
 a {
     color: $colorhyperlink;
     display: block;
+    line-height: 1.5;
+
+    font: {
+        size: 1.25rem;
+    }
 
     &:hover {
         color: $colorhighlight;
     }
 
     &::before {
-        font: {
-            size: 140%;
-        }
-        content: "› ";
+        content: "›\2009";
     }
 }
 
@@ -368,6 +370,12 @@ a {
 
     p {
         font-size: 1rem;
+    }
+
+    a {
+        font: {
+            size: 1rem;
+        }
     }
 
     #nav-inner a {
