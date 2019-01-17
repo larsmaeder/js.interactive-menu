@@ -29,6 +29,7 @@ $('#nav-menu, #nav-menu-mobile').funcToggle('click', function() {
     $('body').css('overflow-y', 'hidden');
     $('#nav-menu-outer').css('left','65px');
     $('#scroll-info').addClass('arrowpos');
+    $('#nav-picture').css("background-image", "url('../dotcom/preview.jpg')");
 }, 
 function() {
     $('#nav-wrapper').css({transform: ''});
